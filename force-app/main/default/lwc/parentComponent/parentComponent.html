@@ -1,20 +1,36 @@
 <template>
-    <lightning-card title="Parent Component">
-        <div class="slds-p-around_x-small">
+    <lightning-card title="Imperative Component">
 
-            First Name : {fullName.firstName}
-            <br />
-            Last Name : {fullName.lastName}
-            <br />
+        <lightning-button variant="brand" label="Show Records" onclick={handleClick} class="slds-m-left_x-small">
+        </lightning-button>
 
-            <lightning-input type="text" label="First Name" name="firstName" placeholder="Enter First Name"
-                onchange={handleInput}>
-            </lightning-input>
+        <template if:true={showTable}>
+            <table class="slds-table slds-table_cell-buffer slds-no-row-hover slds-table_bordered"
+                aria-label="Example table of Opportunities with no row hovers">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Account Id">Account Id</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Account Name">Account Name</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
 
-            <lightning-input type="text" label="Last Name" name="lastName" placeholder="Enter Last Name"
-                onchange={handleInput}>
-            </lightning-input>
-
-        </div>
+                    <template for:each={fetchedAccounts} for:item="acc">
+                        <tr class="slds-hint-parent" key={acc.Id}>
+                            <td data-label="Account Id">
+                                <div class="slds-truncate">{acc.Id}</div>
+                            </td>
+                            <td data-label="Account Name">
+                                <div class="slds-truncate">{acc.Name}</div>
+                            </td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </template>
     </lightning-card>
 </template>

@@ -1,23 +1,18 @@
-import { LightningElement, track } from 'lwc';
+import { LightningElement, track, wire } from 'lwc';
+import accRecords from '@salesforce/apex/LWCController.accRecords';
 
 export default class TrackComponent extends LightningElement {
-    
-    @track
-    fullName = {
-        firstName: "First Name",
-        lastName: "Last Name"
-    }
 
-    handleInput(event) {
-        console.log('Handle input is running');
-        if(event.target.name == 'firstName') {
-            this.fullName.firstName = event.target.value;
-        }
+  showTable=false;
 
-        else if(event.target.name == 'lastName') {
-            this.fullName.lastName = event.target.value;
-        }
+      @track   fetchedAccounts;
 
-        console.log('fullName property value : '+JSON.stringify(this.fullName));
+    handleClick(){
+      accRecords().then(result =>{
+        this.showTable=true;
+        this.fetchedAccounts=result;
+      }).catch(error=>{
+          console.log("Error Message :"+error);
+      })
     }
 }
