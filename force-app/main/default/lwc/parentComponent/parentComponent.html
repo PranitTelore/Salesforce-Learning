@@ -1,6 +1,20 @@
 <template>
-    <lightning-card title="Parent Component"> 
-        This is Parent Component
-        <c-child-component message="Parent Value"></c-child-component>
+    <lightning-card title="Parent Component">
+        <div class="slds-p-around_x-small">
+
+            First Name : {fullName.firstName}
+            <br />
+            Last Name : {fullName.lastName}
+            <br />
+
+            <lightning-input type="text" label="First Name" name="firstName" placeholder="Enter First Name"
+                onchange={handleInput}>
+            </lightning-input>
+
+            <lightning-input type="text" label="Last Name" name="lastName" placeholder="Enter Last Name"
+                onchange={handleInput}>
+            </lightning-input>
+
+        </div>
     </lightning-card>
 </template>
