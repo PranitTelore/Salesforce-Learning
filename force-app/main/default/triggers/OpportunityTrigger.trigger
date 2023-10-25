@@ -1,9 +1,10 @@
-trigger OpportunityTrigger on Opportunity (after insert) {
-        
-    if(Trigger.isAfter){
+trigger OpportunityTrigger on Opportunity (before insert) {
+    
+    if(Trigger.isBefore){
         if(Trigger.isInsert){
-            OpportunityTriggerHandler.method(Trigger.new);
-			}
+           // OpportunityTriggerHandler.amountErr(Trigger.new);
+           OpportunityTriggerHandler.populateHot(Trigger.new);
+        }
     }
-      
+    
 }

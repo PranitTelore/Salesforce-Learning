@@ -1,20 +1,29 @@
 <template>
-    <lightning-card title="Age Component">
-        <lightning-input type="number"
-                                label="Enter your Age"
-                                placeholder="Enter Age..."
-                                onchange={handleInput}
-        ></lightning-input>
-    <template lwc:if={eligible}>
-        You are eligible
-    </template>  
-    <template lwc:elseif={NotEligible}>
-        You are not eligible for Voting
-    </template>      
-    <template lwc:else>
-        Please Enter Valid Age
-    </template>
+    <lightning-card title="Hellow World Component">
+        <div class="slds-p-left_x-small">
+            <lightning-input type="text"
+                                    label="First Name"
+                                    name="firstName"
+                                    placeholder="Enter First Name"
+                                    onchange={handleInput}>
 
+            </lightning-input>
+            <lightning-input type="text"
+                                    label="Last Name" 
+                                    name="lastName" 
+                                    placeholder="Enter Last Name"
+                                    onchange={handleInput}>
+            </lightning-input>
+<br />
+<centre>
+    <lightning-button variant="brand"
+                              label="Submit" 
+                              title="Primary action" 
+                              onclick={handleButtonClick}
+        class="slds-m-left_x-small">
+    </lightning-button>
 
+</centre>
+        </div>
     </lightning-card>
 </template>

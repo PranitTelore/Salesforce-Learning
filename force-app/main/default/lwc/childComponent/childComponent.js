@@ -1,10 +1,16 @@
 import { LightningElement, api } from 'lwc';
 
 export default class ChildComponent extends LightningElement {
-    @api
-    message='Hello Child';
-    @api
-    childFunction(){
-        console.log('Child Function called');
+    constructor(){
+        super();
+        console.log('Inside Child Constr');
+    }
+
+    connectedCallback(){
+        console.log("Inside Child, Connected Callbvack");
+    }
+
+    renderedCallback(){
+        console.log('Inside Child renderedCallback');
     }
 }
