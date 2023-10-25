@@ -1,0 +1,32 @@
+<template>
+    <lightning-card title="Toast Message Component">
+        <div class="slds-p-left_small">
+        Click below button !!
+        <br>
+        <lightning-button variant="brand"
+                                   label="info"
+                                   onclick={infoButton}>
+        </lightning-button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <lightning-button variant="success"
+                                   label="Sucess"
+                                   onclick={sucessButton}>
+
+        </lightning-button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+        <lightning-button variant="destructive-textx" label="Warning" onclick={warningButton}>
+        
+        </lightning-button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+        <lightning-button variant="destructive" label="Error" onclick={errorButton}>
+        
+        </lightning-button>
+
+
+
+        </div>
+    </lightning-card>
+</template>
